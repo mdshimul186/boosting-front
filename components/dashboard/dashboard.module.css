@@ -1,0 +1,32 @@
+.profileInfo{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+background-color: #FFFFFF;
+box-shadow: 7px 7px 15px -16px rgba(0,0,0,0.75);
+padding: 10px;
+border-radius: 6px;
+}
+.profileData{
+    margin-left: 10px;
+}
+.sidebar{
+    background-color: #FFFFFF;
+    box-shadow: 7px 7px 15px -16px rgba(0,0,0,0.75);
+    border-radius: 6px;
+    margin-top: 15px;
+}
+.sidebarItem{
+    padding: 15px 20px;
+    display: block;
+    font-size: 120%;
+    border-bottom: 1px dotted #cdcdcd;
+}
+.rightContent{
+    background-color: #FFFFFF;
+    box-shadow: 7px 7px 15px -16px rgba(0,0,0,0.75);
+    border-radius: 6px;
+    padding: 10px;
+    height: 60vh;
+   
+}

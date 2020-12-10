@@ -1,0 +1,1100 @@
+// Brink Pink Color CSS
+
+$brink-pink-color: #f48665;
+$light-green-color: #44ce6f;
+$white-color: #ffffff;
+$black-color: #0e314c;
+$paragraph-color: #6084a4;
+$bg-color: #f7fafd;
+$bg-color2: #f9f6f6;
+$bg-color3: #f9fafb;
+$bg-color4: #0f054b;
+$hosting-main-color: #032b8d;
+$gradient-color: linear-gradient(135deg, #f48665 0%, #fda23f 100%);
+$gradient-color2: linear-gradient(to right bottom, #1fa2ff, #00c0ff, #00d9f2, #53eedd, #a6ffcb);
+
+a {
+    &:hover, &:focus {
+        color: $brink-pink-color;
+    }
+}
+.btn-primary {
+    background-color: $brink-pink-color;
+    box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+
+    &:hover, &:focus, &:active {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, & .show > &.dropdown-toggle {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &.disabled, &:disabled {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &.disabled:hover, &.disabled:focus, &:disabled:hover, &:disabled:focus {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+}
+.btn {
+    &::after, &::before {
+        background: $light-green-color;
+    }
+}
+.section-title {
+    .bar {
+        background: #ffddd3;
+
+        &::before {
+            background: $brink-pink-color;
+        }
+    }
+}
+.form-control {
+    &:focus {
+        border-color: $brink-pink-color;
+    }
+}
+.owl-theme {
+    .owl-dots {
+        .owl-dot {
+            &:hover, &.active {
+                span {
+                    border-color: $brink-pink-color !important;
+                }
+            }
+        }
+    }
+}
+
+.preloader {
+    background: $brink-pink-color;
+}
+
+.startp-nav {
+    nav {
+        .navbar-nav {
+            .nav-item {
+                a {
+                    &:hover, &:focus, &.active {
+                        color: $brink-pink-color;
+                    }
+                }
+                .dropdown_menu {
+                    li {
+                        a {
+                            &:hover, &:focus, &.active {
+                                color: $brink-pink-color;
+                            }
+                        }
+                        .dropdown_menu {
+                            li {
+                                a {
+                                    &:hover, &:focus, &.active {
+                                        color: $brink-pink-color;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            a {
+                                color: $brink-pink-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .others-option {
+            .btn {
+                &.btn-light {
+                    border-color: #ffe3db;
+
+                    &::before, &::after {
+                        background-color: $brink-pink-color;
+                    }
+                    &:hover, &:focus {
+                        border-color: $brink-pink-color;
+                    }
+                    &:focus {
+                        background-color: $brink-pink-color;
+                    }
+                }
+                &.btn-primary {
+                    background: $light-green-color;
+                    box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+
+                    &::after, &::before {
+                        background-color: $brink-pink-color;
+                        box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.single-box {
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.single-why-choose-us {
+    .icon {
+        color: $brink-pink-color;
+    }
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.services-content {
+    .box {
+        &::before {
+            background: $gradient-color;
+        }
+        svg {
+            color: $brink-pink-color;
+        }
+        &:hover {
+            svg {
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.single-services-box {
+    &::before, &::after {
+        background: $brink-pink-color;
+    }
+    &:hover {
+        .icon {
+            background: $brink-pink-color;
+        }
+    }
+}
+
+.services-details-desc {
+    .services-details-accordion {
+        .accordion {
+            .accordion-title {
+                i {
+                    background: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.single-hosting-features {
+    &::before, &::after {
+        background: $brink-pink-color;
+    }
+    &:hover {
+        .icon {
+            background: $brink-pink-color;
+        }
+    }
+}
+
+.features-details-desc {
+    .features-details-list {
+        li {
+            &::before {
+                background: $brink-pink-color;
+            }
+        }
+    }
+    .features-details-accordion {
+        .accordion {
+            .accordion-title {
+                i {
+                    background: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.single-team {
+    .team-info {
+        background: $gradient-color;
+    }
+    .team-content {
+        ul {
+            li {
+                a {
+                    color: $light-green-color;
+
+                    &:hover {
+                        color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .team-image {
+            img {
+                border-color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.funfact {
+    h3 {
+        color: $brink-pink-color;
+    }
+}
+
+.contact-cta-box {
+    .btn {
+       background-color: $light-green-color;
+
+        &::before, &::after {
+            background: $brink-pink-color;
+        }
+    }
+    .btn-primary {
+        background: $light-green-color;
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+
+        &:hover, &:focus {
+            box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+        }
+    }
+}
+
+.hosting-main-banner {
+    .hosting-banner-content {
+        ul {
+            li {
+                &::before {
+                    background: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.pricing-table {
+    .pricing-header {
+        &::before {
+            background: $gradient-color;
+        }
+    }
+    .price {
+        span {
+            color: $brink-pink-color;
+        }
+    }
+    &.active-plan {
+        .btn-primary {
+            background-color: $light-green-color;
+
+            &::after, &::before {
+                background: $brink-pink-color;
+            }
+            &:hover, &:focus {
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+            }
+        }
+    }
+}
+.single-pricing-table {
+    .price {
+        span {
+            color: $brink-pink-color;
+        }
+    }
+    &.active-plan {
+        .btn-primary {
+            background-color: $light-green-color;
+
+            &::after, &::before {
+                background: $brink-pink-color;
+            }
+            &:hover, &:focus {
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+            }
+        }
+    }
+}
+
+.domain-search-content {
+    form {
+        button {
+            background-color: $brink-pink-color;
+            
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.single-works {
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.feedback-slides {
+    .client-feedback {
+        .single-feedback {
+            .client-img {
+                img {
+                    border-color: $brink-pink-color;
+                }
+            }
+            span {
+                color: $light-green-color;
+            }
+        }
+    }
+    .client-thumbnails {
+        .item {
+            .img-fill {
+                img {
+                    border-color: $brink-pink-color;
+                }
+            }
+        }
+    }
+    .next-arrow, .prev-arrow {
+        &::before, &::before {
+            background: $gradient-color;
+        }
+        &:hover, &:hover {
+            border-color: $brink-pink-color;
+        }
+    }
+}
+.testimonials-slides {
+    &.owl-theme {
+        .owl-dots {
+            .owl-dot {
+                &:hover, &.active {
+                    span {
+                        border-color: $brink-pink-color;
+
+                        &::before {
+                            background: $brink-pink-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.single-feedback-item {
+    .client-info {
+        .image {
+            img {
+                border-color: $brink-pink-color;
+            }
+        }
+        .title {
+            span {
+                color: $light-green-color;
+            }
+        }
+    }
+}
+
+.ready-to-talk {
+    background: $gradient-color;
+    
+    .btn-primary {
+        background: $light-green-color;
+    }
+}
+
+.single-blog-post {
+    .blog-image {
+        .date {
+            background: $gradient-color;
+        }
+    }
+    .blog-post-content {
+        span {
+            a {
+                &:hover {
+                    color: $brink-pink-color;
+                }
+            }
+        }
+        .read-more-btn {
+            &:hover {
+                color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.single-products {
+    .products-image {
+        ul {
+            li {
+                a {
+                    &:hover, &:focus {
+                        background-color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-content {
+    button {
+        &.close {
+            &:hover, &:focus {
+                background-color: $brink-pink-color;
+            }
+        }
+    } 
+    .products-content {
+        form {
+            button {
+                background: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.products-details {
+    .availability {
+        span {
+            color: $brink-pink-color;
+        }
+    }
+    form {
+        button {
+            background: $brink-pink-color;
+
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+        .add-to-wishlist-btn {
+            &:hover, &:focus {
+                background-color: $light-green-color;
+                border-color: $light-green-color;
+            }
+        }
+        .buy-btn {
+            margin-top: 20px;
+
+            .btn-primary {
+                background: $brink-pink-color;
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+
+                &::after, &::before {
+                    background: $light-green-color;
+                    box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+                }
+            }
+        }
+    }
+    .products-share-social {
+        ul {
+            li {
+                a {
+                    border-color: $brink-pink-color;
+                    color: $brink-pink-color;
+
+                    &:hover {
+                        background: $brink-pink-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.products-details-tabs {
+    #tabs {
+        li {
+            &.active {
+                &::before {
+                    background: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.cart-table {
+    table {
+        tbody {
+            tr {
+                td {
+                    &.product-name {
+                        a {
+                            &:hover {
+                                color: $brink-pink-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.user-actions {
+    border-color: $brink-pink-color;
+
+    svg {
+        color: $brink-pink-color;
+    }
+    span {
+        color: $brink-pink-color;
+
+        a {
+            &:hover, &:focus {
+                color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.order-details {
+    .order-table {
+        table {
+            tbody {
+                tr {
+                    td {
+                        &.product-name {
+                            a {
+                                &:hover {
+                                    color: $brink-pink-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .payment-method {
+        p {
+            [type="radio"]:checked + label::after, [type="radio"]:not(:checked) + label::after {
+                background: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.pagination-area {
+    ul {
+        .page-item {
+            .page-link {
+                &:hover, &:focus {
+                    background-color: $brink-pink-color;
+                }
+            }
+            &.active {
+                .page-link {
+                    background-color: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.blog-details-area {
+    .blog-details {
+        .article-img {
+            position: relative;
+
+            .date {
+                background: $brink-pink-color;
+            }
+        }
+        .article-content {
+            ul {
+                &.category {
+                    li {
+                        a {
+                            background: $brink-pink-color;
+                        }
+                    }
+                }
+            }
+            .blockquote {
+                border-color: $brink-pink-color;
+            }
+            .share-post {
+                ul {
+                    li {
+                        a {
+                            &:hover, &:focus {
+                                border-color: $brink-pink-color;
+                                background-color: $brink-pink-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .post-controls-buttons {
+        div {
+            a {
+                &:hover, &:focus {
+                    background: $brink-pink-color;
+                    border-color: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.project-details-image {
+    svg {
+        &:hover {
+            color: $brink-pink-color;
+        }
+    }
+}
+.project-details-desc {
+    .project-details-information {
+        .single-info-box {
+            ul {
+                li {
+                    a {
+                        &:hover {
+                            color: $brink-pink-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact-info-box {
+    .icon {
+        color: $brink-pink-color;
+    }
+    p {
+        a {
+            &:hover {
+                color: $brink-pink-color;
+            }
+        }
+    }
+    &:hover {
+        .icon {
+            background: $brink-pink-color;
+        }
+    }
+}
+
+.coming-soon-area {
+    .social-list {
+        li {
+            a {
+                background: $brink-pink-color;
+                
+                &:hover, &:focus {
+                    background-color: $brink-pink-color;
+                }
+            }
+        }
+    }
+}
+
+.coming-soon-content {
+    form {
+        .submit-btn {
+            background: $brink-pink-color;
+            
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.cta-right-content {
+    .buy-btn {
+        .btn-primary {
+            &:hover, &:focus {
+                color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.repair-about-content {
+    .sub-title {
+        color: $brink-pink-color;
+    }
+    ul {
+        li {
+            span {
+                svg {
+                    color: $brink-pink-color;
+                }
+                &::before {
+                    background: $gradient-color;
+                }
+                &:hover, &:focus {
+                    svg {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.single-repair-services {
+    &::after {
+        background: $gradient-color;
+    }
+    .icon {
+        color: $brink-pink-color;
+    }
+    &:hover, &:focus {
+        a {
+            color: $brink-pink-color;
+        }
+    }
+}
+
+.single-repair-box {
+    &:hover, &:focus {
+        border-color: $brink-pink-color;
+
+        a {
+            background-color: $brink-pink-color;
+        }
+    }
+}
+
+.single-repair-feedback {
+    .client-img {
+        img {
+            border-color: $brink-pink-color;
+        }
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+
+.iot-banner-content {
+    span {
+        color: $brink-pink-color;
+    }
+}
+
+.single-iot-services {
+    .icon {
+        color: $brink-pink-color;
+    }
+    &:hover, &:focus {
+        a {
+            color: $brink-pink-color;
+        }
+    }
+}
+
+.single-iot-box {
+    &:hover, &:focus {
+        border-color: $brink-pink-color;
+
+        a {
+            background-color: $brink-pink-color;
+        }
+    }
+}
+
+// ML
+.section-title {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #d4f7df;
+    }
+}
+
+.btn {
+    &.btn-secondary {
+        background-color: $brink-pink-color;
+        box-shadow: 5px 5px 5px #ffcfc0;
+
+        &::before {
+            background: $light-green-color;
+        }
+        &::after {
+            background: $light-green-color;
+        }
+        &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+            background-color: $brink-pink-color;
+            border-color: $brink-pink-color;
+        }
+        &:not(:disabled):not(.disabled).active:focus, &:not(:disabled):not(.disabled):active:focus, .show>&.dropdown-toggle:focus {
+            box-shadow: 5px 5px 5px #a6f5be;
+        }
+        &:hover, &:focus {
+            box-shadow: 5px 5px 5px #a6f5be;
+        }
+    }
+}
+
+.ml-about-content {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #d4f7df;
+    }
+    .bar {
+        background: #ffddd3;
+
+        &::before {
+            background: $brink-pink-color;
+        }
+    }
+}
+
+.single-ml-services-box {
+    &::before {
+        background: $brink-pink-color;
+    }
+}
+
+.pricing-box {
+    .buy-btn {
+        .btn-primary {
+            &::after {
+                background: $brink-pink-color;
+            }
+        }
+    }
+    .pricing-features {
+        li {
+            svg {
+                color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.single-ml-feedback-item {
+    .client-info {
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+.ml-feedback-slides {
+    .owl-dots {
+        .owl-dot {
+            span {
+                &::before {
+                    background-color: $brink-pink-color;
+                }
+            }
+            &:hover, &.active {
+                span {
+                    border-color: $brink-pink-color;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.single-blog-post-box {
+    .entry-post-content {
+        .entry-meta {
+            ul {
+                li {
+                    a {
+                        &:hover {
+                            color: $brink-pink-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.free-trial-content {
+    form {
+        button {
+            background-color: $brink-pink-color;
+            
+            &:hover {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.single-ml-projects-box {
+    .plus-icon {
+        a {
+            background-color: $brink-pink-color;
+            
+            &:hover {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+.ml-projects-slides {
+    &.owl-theme {
+        .owl-dots {
+            .owl-dot {
+                span {
+                    &::before {
+                        background-color: $brink-pink-color;
+                    }
+                }
+                &:hover, &.active {
+                    span {
+                        border-color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Agency home demo CSS */
+.solutions-box {
+    .icon {
+        color: $brink-pink-color;
+    }
+    .learn-more-btn {
+        &:hover {
+            color: $brink-pink-color;
+        }
+    }
+}
+
+.agency-about-content {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #d4f7df;
+    }
+    .bar {
+        background: #ffddd3;
+
+        &::before {
+            background: $brink-pink-color;
+        }
+    }
+}
+
+.agency-services-box {
+    .content {
+        .read-more-btn {
+            &:hover {
+                background-color: $brink-pink-color;
+                border-color: $brink-pink-color;
+            }
+        }
+    }
+}
+
+.single-testimonials-item {
+    .client-info {
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+
+.single-blog-post-item {
+    .post-content {
+        .post-meta {
+            li {
+                a {
+                    &:hover {
+                        color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+        .read-more-btn {
+            &:hover {
+                background-color: $brink-pink-color;
+                border-color: $brink-pink-color;
+            }
+        }
+    }
+}
+/* End agency home demo CSS */
+
+.single-footer-widget {
+    ul {
+        &.list {
+            li {
+                a {
+                    &:hover {
+                        color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+        &.footer-contact-info {
+
+            li {
+                a {
+                    &:hover {
+                        color: $brink-pink-color;
+                    }
+                }
+            }
+        }
+        &.social-links {
+            li {
+                a {
+                    border-color: $brink-pink-color;
+                    color: $brink-pink-color;
+
+                    &:hover {
+                        background: $brink-pink-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.go-top {
+    background: $brink-pink-color;
+
+    &:hover {
+        background: $light-green-color;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .startp-responsive-nav {
+        .startp-responsive-menu {
+            &.mean-container {
+                .mean-nav {
+                    ul {
+                        li {
+                            a {
+                                &.active {
+                                    color: $brink-pink-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

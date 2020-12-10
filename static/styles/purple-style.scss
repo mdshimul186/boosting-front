@@ -1,0 +1,1100 @@
+// Pink Color CSS
+
+$purple-color: #c679e3;
+$light-green-color: #44ce6f;
+$white-color: #ffffff;
+$black-color: #0e314c;
+$paragraph-color: #6084a4;
+$bg-color: #f7fafd;
+$bg-color2: #f9f6f6;
+$bg-color3: #f9fafb;
+$bg-color4: #0f054b;
+$hosting-main-color: #032b8d;
+$gradient-color: linear-gradient(135deg, #9a56ff 0%, #e36cd9 100%);
+$gradient-color2: linear-gradient(to right bottom, #1fa2ff, #00c0ff, #00d9f2, #53eedd, #a6ffcb);
+
+a {
+    &:hover, &:focus {
+        color: $purple-color;
+    }
+}
+.btn-primary {
+    background-color: $purple-color;
+    box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+
+    &:hover, &:focus, &:active {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, & .show > &.dropdown-toggle {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &.disabled, &:disabled {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+    &.disabled:hover, &.disabled:focus, &:disabled:hover, &:disabled:focus {
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+    }
+}
+.btn {
+    &::after, &::before {
+        background: $light-green-color;
+    }
+}
+.section-title {
+    .bar {
+        background: #ffe1fd;
+
+        &::before {
+            background: $purple-color;
+        }
+    }
+}
+.form-control {
+    &:focus {
+        border-color: $purple-color;
+    }
+}
+.owl-theme {
+    .owl-dots {
+        .owl-dot {
+            &:hover, &.active {
+                span {
+                    border-color: $purple-color !important;
+                }
+            }
+        }
+    }
+}
+
+.preloader {
+    background: $purple-color;
+}
+
+.startp-nav {
+    nav {
+        .navbar-nav {
+            .nav-item {
+                a {
+                    &:hover, &:focus, &.active {
+                        color: $purple-color;
+                    }
+                }
+                .dropdown_menu {
+                    li {
+                        a {
+                            &:hover, &:focus, &.active {
+                                color: $purple-color;
+                            }
+                        }
+                        .dropdown_menu {
+                            li {
+                                a {
+                                    &:hover, &:focus, &.active {
+                                        color: $purple-color;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            a {
+                                color: $purple-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .others-option {
+            .btn {
+                &.btn-light {
+                    border-color: #d6b4e7;
+
+                    &::before, &::after {
+                        background-color: $purple-color;
+                    }
+                    &:hover, &:focus {
+                        border-color: $purple-color;
+                    }
+                    &:focus {
+                        background-color: $purple-color;
+                    }
+                }
+                &.btn-primary {
+                    background: $light-green-color;
+                    box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+
+                    &::after, &::before {
+                        background-color: $purple-color;
+                        box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.single-box {
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.single-why-choose-us {
+    .icon {
+        color: $purple-color;
+    }
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.services-content {
+    .box {
+        &::before {
+            background: $gradient-color;
+        }
+        svg {
+            color: $purple-color;
+        }
+        &:hover {
+            svg {
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.single-services-box {
+    &::before, &::after {
+        background: $purple-color;
+    }
+    &:hover {
+        .icon {
+            background: $purple-color;
+        }
+    }
+}
+
+.services-details-desc {
+    .services-details-accordion {
+        .accordion {
+            .accordion-title {
+                i {
+                    background: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.single-hosting-features {
+    &::before, &::after {
+        background: $purple-color;
+    }
+    &:hover {
+        .icon {
+            background: $purple-color;
+        }
+    }
+}
+
+.features-details-desc {
+    .features-details-list {
+        li {
+            &::before {
+                background: $purple-color;
+            }
+        }
+    }
+    .features-details-accordion {
+        .accordion {
+            .accordion-title {
+                i {
+                    background: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.single-team {
+    .team-info {
+        background: $gradient-color;
+    }
+    .team-content {
+        ul {
+            li {
+                a {
+                    color: $light-green-color;
+
+                    &:hover {
+                        color: $purple-color;
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .team-image {
+            img {
+                border-color: $purple-color;
+            }
+        }
+    }
+}
+
+.funfact {
+    h3 {
+        color: $purple-color;
+    }
+}
+
+.contact-cta-box {
+    .btn {
+       background-color: $light-green-color;
+
+        &::before, &::after {
+            background: $purple-color;
+        }
+    }
+    .btn-primary {
+        background: $light-green-color;
+        box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+
+        &:hover, &:focus {
+            box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+        }
+    }
+}
+
+.hosting-main-banner {
+    .hosting-banner-content {
+        ul {
+            li {
+                &::before {
+                    background: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.pricing-table {
+    .pricing-header {
+        &::before {
+            background: $gradient-color;
+        }
+    }
+    .price {
+        span {
+            color: $purple-color;
+        }
+    }
+    &.active-plan {
+        .btn-primary {
+            background-color: $light-green-color;
+
+            &::after, &::before {
+                background: $purple-color;
+            }
+            &:hover, &:focus {
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+            }
+        }
+    }
+}
+.single-pricing-table {
+    .price {
+        span {
+            color: $purple-color;
+        }
+    }
+    &.active-plan {
+        .btn-primary {
+            background-color: $light-green-color;
+
+            &::after, &::before {
+                background: $purple-color;
+            }
+            &:hover, &:focus {
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+            }
+        }
+    }
+}
+
+.domain-search-content {
+    form {
+        button {
+            background-color: $purple-color;
+            
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.single-works {
+    &::before {
+        background: $gradient-color;
+    }
+}
+
+.feedback-slides {
+    .client-feedback {
+        .single-feedback {
+            .client-img {
+                img {
+                    border-color: $purple-color;
+                }
+            }
+            span {
+                color: $light-green-color;
+            }
+        }
+    }
+    .client-thumbnails {
+        .item {
+            .img-fill {
+                img {
+                    border-color: $purple-color;
+                }
+            }
+        }
+    }
+    .next-arrow, .prev-arrow {
+        &::before, &::before {
+            background: $gradient-color;
+        }
+        &:hover, &:hover {
+            border-color: $purple-color;
+        }
+    }
+}
+.testimonials-slides {
+    &.owl-theme {
+        .owl-dots {
+            .owl-dot {
+                &:hover, &.active {
+                    span {
+                        border-color: $purple-color;
+
+                        &::before {
+                            background: $purple-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.single-feedback-item {
+    .client-info {
+        .image {
+            img {
+                border-color: $purple-color;
+            }
+        }
+        .title {
+            span {
+                color: $light-green-color;
+            }
+        }
+    }
+}
+
+.ready-to-talk {
+    background: $gradient-color;
+    
+    .btn-primary {
+        background: $light-green-color;
+    }
+}
+
+.single-blog-post {
+    .blog-image {
+        .date {
+            background: $gradient-color;
+        }
+    }
+    .blog-post-content {
+        span {
+            a {
+                &:hover {
+                    color: $purple-color;
+                }
+            }
+        }
+        .read-more-btn {
+            &:hover {
+                color: $purple-color;
+            }
+        }
+    }
+}
+
+.single-products {
+    .products-image {
+        ul {
+            li {
+                a {
+                    &:hover, &:focus {
+                        background-color: $purple-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-content {
+    button {
+        &.close {
+            &:hover, &:focus {
+                background-color: $purple-color;
+            }
+        }
+    } 
+    .products-content {
+        form {
+            button {
+                background: $purple-color;
+            }
+        }
+    }
+}
+
+.products-details {
+    .availability {
+        span {
+            color: $purple-color;
+        }
+    }
+    form {
+        button {
+            background: $purple-color;
+
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+        .add-to-wishlist-btn {
+            &:hover, &:focus {
+                background-color: $light-green-color;
+                border-color: $light-green-color;
+            }
+        }
+        .buy-btn {
+            margin-top: 20px;
+
+            .btn-primary {
+                background: $purple-color;
+                box-shadow: 0 13px 27px 0 rgba(244, 134, 101, 0.25);
+
+                &::after, &::before {
+                    background: $light-green-color;
+                    box-shadow: 0 13px 27px 0 rgba(68, 206, 111, 0.25);
+                }
+            }
+        }
+    }
+    .products-share-social {
+        ul {
+            li {
+                a {
+                    border-color: $purple-color;
+                    color: $purple-color;
+
+                    &:hover {
+                        background: $purple-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.products-details-tabs {
+    #tabs {
+        li {
+            &.active {
+                &::before {
+                    background: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.cart-table {
+    table {
+        tbody {
+            tr {
+                td {
+                    &.product-name {
+                        a {
+                            &:hover {
+                                color: $purple-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.user-actions {
+    border-color: $purple-color;
+
+    svg {
+        color: $purple-color;
+    }
+    span {
+        color: $purple-color;
+
+        a {
+            &:hover, &:focus {
+                color: $purple-color;
+            }
+        }
+    }
+}
+
+.order-details {
+    .order-table {
+        table {
+            tbody {
+                tr {
+                    td {
+                        &.product-name {
+                            a {
+                                &:hover {
+                                    color: $purple-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .payment-method {
+        p {
+            [type="radio"]:checked + label::after, [type="radio"]:not(:checked) + label::after {
+                background: $purple-color;
+            }
+        }
+    }
+}
+
+.pagination-area {
+    ul {
+        .page-item {
+            .page-link {
+                &:hover, &:focus {
+                    background-color: $purple-color;
+                }
+            }
+            &.active {
+                .page-link {
+                    background-color: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.blog-details-area {
+    .blog-details {
+        .article-img {
+            position: relative;
+
+            .date {
+                background: $purple-color;
+            }
+        }
+        .article-content {
+            ul {
+                &.category {
+                    li {
+                        a {
+                            background: $purple-color;
+                        }
+                    }
+                }
+            }
+            .blockquote {
+                border-color: $purple-color;
+            }
+            .share-post {
+                ul {
+                    li {
+                        a {
+                            &:hover, &:focus {
+                                border-color: $purple-color;
+                                background-color: $purple-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .post-controls-buttons {
+        div {
+            a {
+                &:hover, &:focus {
+                    background: $purple-color;
+                    border-color: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.project-details-image {
+    svg {
+        &:hover {
+            color: $purple-color;
+        }
+    }
+}
+.project-details-desc {
+    .project-details-information {
+        .single-info-box {
+            ul {
+                li {
+                    a {
+                        &:hover {
+                            color: $purple-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact-info-box {
+    .icon {
+        color: $purple-color;
+    }
+    p {
+        a {
+            &:hover {
+                color: $purple-color;
+            }
+        }
+    }
+    &:hover {
+        .icon {
+            background: $purple-color;
+        }
+    }
+}
+
+.coming-soon-area {
+    .social-list {
+        li {
+            a {
+                background: $purple-color;
+                
+                &:hover, &:focus {
+                    background-color: $purple-color;
+                }
+            }
+        }
+    }
+}
+
+.coming-soon-content {
+    form {
+        .submit-btn {
+            background: $purple-color;
+            
+            &:hover, &:focus {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.cta-right-content {
+    .buy-btn {
+        .btn-primary {
+            &:hover, &:focus {
+                color: $purple-color;
+            }
+        }
+    }
+}
+
+.repair-about-content {
+    .sub-title {
+        color: $purple-color;
+    }
+    ul {
+        li {
+            span {
+                svg {
+                    color: $purple-color;
+                }
+                &::before {
+                    background: $gradient-color;
+                }
+                &:hover, &:focus {
+                    svg {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.single-repair-services {
+    &::after {
+        background: $gradient-color;
+    }
+    .icon {
+        color: $purple-color;
+    }
+    &:hover, &:focus {
+        a {
+            color: $purple-color;
+        }
+    }
+}
+
+.single-repair-box {
+    &:hover, &:focus {
+        border-color: $purple-color;
+
+        a {
+            background-color: $purple-color;
+        }
+    }
+}
+
+.single-repair-feedback {
+    .client-img {
+        img {
+            border-color: $purple-color;
+        }
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+
+.iot-banner-content {
+    span {
+        color: $purple-color;
+    }
+}
+
+.single-iot-services {
+    .icon {
+        color: $purple-color;
+    }
+    &:hover, &:focus {
+        a {
+            color: $purple-color;
+        }
+    }
+}
+
+.single-iot-box {
+    &:hover, &:focus {
+        border-color: $purple-color;
+
+        a {
+            background-color: $purple-color;
+        }
+    }
+}
+
+// ML
+.section-title {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #d4f7df;
+    }
+}
+
+.btn {
+    &.btn-secondary {
+        background-color: $purple-color;
+        box-shadow: 5px 5px 5px #e9caf5;
+
+        &::before {
+            background: $light-green-color;
+        }
+        &::after {
+            background: $light-green-color;
+        }
+        &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
+            background-color: $purple-color;
+            border-color: $purple-color;
+        }
+        &:not(:disabled):not(.disabled).active:focus, &:not(:disabled):not(.disabled):active:focus, .show>&.dropdown-toggle:focus {
+            box-shadow: 5px 5px 5px #a6f5be;
+        }
+        &:hover, &:focus {
+            box-shadow: 5px 5px 5px #a6f5be;
+        }
+    }
+}
+
+.ml-about-content {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #ffe1fd;
+    }
+    .bar {
+        background: #ffe1fd;
+
+        &::before {
+            background: $purple-color;
+        }
+    }
+}
+
+.single-ml-services-box {
+    &::before {
+        background: $purple-color;
+    }
+}
+
+.pricing-box {
+    .buy-btn {
+        .btn-primary {
+            &::after {
+                background: $purple-color;
+            }
+        }
+    }
+    .pricing-features {
+        li {
+            svg {
+                color: $purple-color;
+            }
+        }
+    }
+}
+
+.single-ml-feedback-item {
+    .client-info {
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+.ml-feedback-slides {
+    .owl-dots {
+        .owl-dot {
+            span {
+                &::before {
+                    background-color: $purple-color;
+                }
+            }
+            &:hover, &.active {
+                span {
+                    border-color: $purple-color;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.single-blog-post-box {
+    .entry-post-content {
+        .entry-meta {
+            ul {
+                li {
+                    a {
+                        &:hover {
+                            color: $purple-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.free-trial-content {
+    form {
+        button {
+            background-color: $purple-color;
+            
+            &:hover {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+
+.single-ml-projects-box {
+    .plus-icon {
+        a {
+            background-color: $purple-color;
+            
+            &:hover {
+                background-color: $light-green-color;
+            }
+        }
+    }
+}
+.ml-projects-slides {
+    &.owl-theme {
+        .owl-dots {
+            .owl-dot {
+                span {
+                    &::before {
+                        background-color: $purple-color;
+                    }
+                }
+                &:hover, &.active {
+                    span {
+                        border-color: $purple-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Agency home demo CSS */
+.solutions-box {
+    .icon {
+        color: $purple-color;
+    }
+    .learn-more-btn {
+        &:hover {
+            color: $purple-color;
+        }
+    }
+}
+
+.agency-about-content {
+    .sub-title {
+        color: $light-green-color;
+        background-color: #d4f7df;
+    }
+    .bar {
+        background: #ffe1fd;
+
+        &::before {
+            background: $purple-color;
+        }
+    }
+}
+
+.agency-services-box {
+    .content {
+        .read-more-btn {
+            &:hover {
+                background-color: $purple-color;
+                border-color: $purple-color;
+            }
+        }
+    }
+}
+
+.single-testimonials-item {
+    .client-info {
+        span {
+            color: $light-green-color;
+        }
+    }
+}
+
+.single-blog-post-item {
+    .post-content {
+        .post-meta {
+            li {
+                a {
+                    &:hover {
+                        color: $purple-color;
+                    }
+                }
+            }
+        }
+        .read-more-btn {
+            &:hover {
+                background-color: $purple-color;
+                border-color: $purple-color;
+            }
+        }
+    }
+}
+/* End Agency home demo CSS */
+
+.single-footer-widget {
+    ul {
+        &.list {
+            li {
+                a {
+                    &:hover {
+                        color: $purple-color;
+                    }
+                }
+            }
+        }
+        &.footer-contact-info {
+
+            li {
+                a {
+                    &:hover {
+                        color: $purple-color;
+                    }
+                }
+            }
+        }
+        &.social-links {
+            li {
+                a {
+                    border-color: $purple-color;
+                    color: $purple-color;
+
+                    &:hover {
+                        background: $purple-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.go-top {
+    background: $purple-color;
+
+    &:hover {
+        background: $light-green-color;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .startp-responsive-nav {
+        .startp-responsive-menu {
+            &.mean-container {
+                .mean-nav {
+                    ul {
+                        li {
+                            a {
+                                &.active {
+                                    color: $purple-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
