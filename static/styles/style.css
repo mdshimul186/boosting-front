@@ -63,12 +63,13 @@ img {
 }
 
 a {
-  color: #0e314c !important;
+  color: #0e314c;
   display: inline-block !important;
   -webkit-transition: 0.5s;
   transition: 0.5s !important;
   text-decoration: none !important;
   outline: 0 !important;
+  border: none;
 }
 
 a:hover, a:focus {
