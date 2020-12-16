@@ -34,7 +34,7 @@ function Dashboard() {
                     <div className='row'>
                         <div className='col-3'>
                             <div className={style.profileInfo}>
-                                <Avatar alt="Remy Sharp" />
+                                <Avatar src={userData.profilePicture} />
                                 <div className={style.profileData}>
                                     <span>Hello,</span>
                                     <p>{userData.userName}</p>
