@@ -22,6 +22,10 @@ border-radius: 6px;
     font-size: 120%;
     border-bottom: 1px dotted #cdcdcd;
 }
+.sidebarItemLink{
+    color: #0e314c !important;
+}
+
 .rightContent{
     background-color: #FFFFFF;
     box-shadow: 7px 7px 15px -16px rgba(0,0,0,0.75);

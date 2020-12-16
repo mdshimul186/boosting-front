@@ -43,34 +43,34 @@ function Dashboard() {
                             </div>
                             <div className={style.sidebar}>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=profile-settings'><a>Profile settings</a></Link>
+                                    <Link href='/dashboard/?tab=profile-settings'><a className={style.sidebarItemLink}>Profile settings</a></Link>
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=account-settings'><a>Account Settings</a></Link>
+                                    <Link href='/dashboard/?tab=account-settings'><a className={style.sidebarItemLink}>Account Settings</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=purchase-summary'><a>Purchase Summary</a></Link>
+                                    <Link href='/dashboard/?tab=purchase-summary'><a className={style.sidebarItemLink}>Purchase Summary</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=reviews'><a>Reviews</a></Link>
+                                    <Link href='/dashboard/?tab=reviews'><a className={style.sidebarItemLink}>Reviews</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=downloads'><a>Downloads</a></Link>
+                                    <Link href='/dashboard/?tab=downloads'><a className={style.sidebarItemLink}>Downloads</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=wishlist'><a>Wish list</a></Link>
+                                    <Link href='/dashboard/?tab=wishlist'><a className={style.sidebarItemLink}>Wish list</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=collection'><a>Collection</a></Link>
+                                    <Link href='/dashboard/?tab=collection'><a className={style.sidebarItemLink}>Collection</a></Link>
 
                                 </div>
                                 <div className={style.sidebarItem}>
-                                    <Link href='/dashboard/?tab=support-setting'><a>Support setting</a></Link>
+                                    <Link href='/dashboard/?tab=support-setting'><a className={style.sidebarItemLink}>Support setting</a></Link>
 
                                 </div>
 
