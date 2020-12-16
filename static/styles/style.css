@@ -63,17 +63,17 @@ img {
 }
 
 a {
-  color: #0e314c;
-  display: inline-block;
+  color: #0e314c !important;
+  display: inline-block !important;
   -webkit-transition: 0.5s;
-  transition: 0.5s;
-  text-decoration: none;
+  transition: 0.5s !important;
+  text-decoration: none !important;
   outline: 0 !important;
 }
 
 a:hover, a:focus {
-  color: #44ce6f;
-  text-decoration: none;
+  color: #44ce6f !important;
+  text-decoration: none !important;
 }
 
 .d-table {

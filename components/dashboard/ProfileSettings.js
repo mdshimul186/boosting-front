@@ -35,7 +35,7 @@ function ProfileSettings() {
     useEffect(() => {
         setUserName(userData.userName)
         setMobile(userData.mobile)
-        setPaymentNumber(userData.setPaymentNumber)
+        setPaymentNumber(userData.paymentNumber)
         setBankDetails(userData.bankDetails)
         setProfilePicture(userData.profilePicture)
         setFront(userData.NID?.front)
