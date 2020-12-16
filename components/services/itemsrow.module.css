@@ -1,0 +1,29 @@
+.itemsContainer{
+    background-color: #fff !important;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -3px #9c9c9c;
+    border-radius: 3px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.title{
+    text-transform: capitalize;
+    color: #333;
+}
+.viewAll{
+    color: #0397d3!important;
+    border: 1px solid #0397d3 !important;
+    border-radius: 2px 2px 2px 2px!important;
+    box-shadow: 0 3px 6px -4px #a2a2a2 !important;
+    padding: 8px 17px !important;
+    
+}
+.viewAll:hover{
+    color:#ffff !important;
+    background-color: #0397d3 !important;
+}

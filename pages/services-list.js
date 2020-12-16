@@ -3,10 +3,10 @@ import { Preloader, Placeholder } from 'react-preloading-screen'
 import HeaderThree from '../components/Layouts/HeaderThree';
 import Footer from '../components/Layouts/Footer'
 import GoTop from '../components/Layouts/GoTop'
-import PageTitle from '../components/products/PageTitle';
-import Items from '../components/services/Items';
+import PageTitle from '../components/services-list/PageTitle'
+import ServicesContent from '../components/services-list/ServicesContent'
 
-class Products extends React.Component {
+class Features extends React.Component {
     render() {
         return (
             <Preloader>
@@ -16,7 +16,8 @@ class Products extends React.Component {
                     </div>
                 </Placeholder>
                 <HeaderThree />
-                <Items />
+                <PageTitle />
+                <ServicesContent />
                 <Footer />
                 <GoTop scrollStepInPx="50" delayInMs="16.66" />
             </Preloader>
@@ -24,4 +25,4 @@ class Products extends React.Component {
     }
 }
 
-export default Products
+export default Features

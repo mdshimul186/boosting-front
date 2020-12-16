@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
+import React,{useEffect,useState} from 'react';
 import Link from 'next/link';
-import { connect } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import * as Icon from 'react-feather'
 import { ToastContainer, toast } from 'react-toastify';
 import { addToCart } from '../../store/actions/cartActions';
 import QuickView from './QuickView';
 
-class Items extends Component {
+const Items =()=> {
 
-    state = {
+    let dispatch = useDispatch()
+    const {products} = useSelector(state=>state.cart)
+
+    const [modal, setModal] = useState({
         modalOpen: false,
         modalImage: '',
         price: 0,
         idd: null
-    };
+    })
 
-    handleAddToCart = (id) => {
-        this.props.addToCart(id); 
+    
+
+    const handleAddToCart = (id) => {
+        dispatch({
+            type: "ADD_TO_CART",
+            id
+
+        })
+        
         toast.success('Added to the cart', {
             position: "bottom-left",
             autoClose: 5000,
@@ -27,25 +37,27 @@ class Items extends Component {
         });
     }
 
-    openModal = () => {
-        this.setState({ modalOpen: true });
+    const openModal = () => {
+        setModal({...modal, modalOpen: true });
     }
 
-    closeModal = () => {
-        this.setState({ modalOpen: false });
+    const closeModal = () => {
+        setModal({...modal, modalOpen: false });
     }
 
-    handleModalData = (image, price, id) => {
-        this.setState({ 
+    const handleModalData = (image, price, id) => {
+        setModal({ 
+            ...modal,
             modalImage: image, 
             price: price,
             idd: id
         });
     }
 
-    render() {
-        let { products } = this.props;
-        const { modalOpen } = this.state;
+
+  
+
+  
         return (
             <section className="shop-area ptb-80">
                 <ToastContainer />
@@ -87,8 +99,8 @@ class Items extends Component {
                                                 <a 
                                                     onClick={e => {
                                                             e.preventDefault(); 
-                                                            this.openModal();
-                                                            this.handleModalData(data.image,data.price,data.id)
+                                                            openModal();
+                                                            handleModalData(data.image,data.price,data.id)
                                                         }
                                                     }
                                                 >
@@ -123,7 +135,7 @@ class Items extends Component {
                                         <a 
                                             className="add-to-cart-btn"
                                             onClick={(e) => {
-                                                e.preventDefault(); this.handleAddToCart(data.id)
+                                                e.preventDefault(); handleAddToCart(data.id)
                                             }}
                                         >
                                             Add to Cart
@@ -155,30 +167,27 @@ class Items extends Component {
                     </div>
                 </div>
 
-                { modalOpen ? <QuickView 
-                    closeModal={this.closeModal} 
-                    idd={this.state.idd}
-                    image={this.state.modalImage} 
-                    price={this.state.price}
+                { modal.modalOpen ? <QuickView 
+                    closeModal={closeModal} 
+                    idd={modal.idd}
+                    image={modal.modalImage} 
+                    price={modal.price}
                 /> : '' }
             </section>
         );
     }
-}
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.products
-    }
-}
 
-const mapDispatchToProps= (dispatch) => {
-    return {
-        addToCart: (id) => { dispatch(addToCart(id)) }
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+       
+//     }
+// }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Items)
+// const mapDispatchToProps= (dispatch) => {
+//     return {
+//         addToCart: (id) => { dispatch(addToCart(id)) }
+//     }
+// }
+
+export default Items

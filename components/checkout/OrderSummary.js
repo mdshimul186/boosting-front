@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Link from "next/link";
 import Payment from '../Payment/Payment';
 
-class OrderSummary extends Component {
-    render() {
-        let totalAmount = (this.props.total).toFixed(2)
+const OrderSummary=()=>{
+    const {total,addedItems} = useSelector(state=>state.cart)
+    
+        let totalAmount = total.toFixed(2)
         return (
             <div className="col-lg-6 col-md-12">
                 <div className="order-details">
@@ -22,7 +23,7 @@ class OrderSummary extends Component {
 
                             <tbody>
 
-                                {this.props.products.map((data, idx) => (
+                                {addedItems.map((data, idx) => (
                                     <tr key={idx}>
                                         <td className="product-name">
                                             <Link href="#">
@@ -43,7 +44,7 @@ class OrderSummary extends Component {
                                     </td>
 
                                     <td className="order-subtotal-price">
-                                        <span className="order-subtotal-amount">${this.props.total}</span>
+                                        <span className="order-subtotal-amount">${total}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -61,7 +62,7 @@ class OrderSummary extends Component {
                                     </td>
 
                                     <td className="product-subtotal">
-                                        <span className="subtotal-amount">${this.props.total}</span>
+                                        <span className="subtotal-amount">${total}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -87,21 +88,19 @@ class OrderSummary extends Component {
 
                     <Payment 
                         amount={totalAmount * 100}
-                        disabled={this.props.disabled}
+                        disabled='disabled'
                     />
                 </div>
             </div>
         );
     }
-}
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.addedItems,
-        total: state.total
-    }
-}
 
-export default connect(
-    mapStateToProps
-)(OrderSummary)
+// const mapStateToProps = (state) => {
+//     return {
+//         products: state.addedItems,
+//         total: state.total
+//     }
+// }
+
+export default OrderSummary

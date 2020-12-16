@@ -27,6 +27,6 @@ border-radius: 6px;
     box-shadow: 7px 7px 15px -16px rgba(0,0,0,0.75);
     border-radius: 6px;
     padding: 10px;
-    height: 60vh;
+    min-height: 70vh;
    
 }

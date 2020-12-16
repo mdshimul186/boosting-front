@@ -5,11 +5,12 @@ import { useDispatch } from 'react-redux'
 import Cookies from "js-cookie";
 import Router from "next/router";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { ToastContainer, toast } from 'react-toastify';
 
 function RegisterComp() {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
+    const [userName, setUserName] = useState("")
     const [email, setEmail] = useState("")
+    const [accountType, setAccountType] = useState("personal")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [error, setError] = useState(null)
@@ -17,20 +18,29 @@ function RegisterComp() {
 
     let dispatch = useDispatch()
 
+    
+
     const handleRegister = (e) => {
         e.preventDefault()
         setLoading(true)
         let data = {
-            firstName,
-            lastName,
+            userName,
             email,
+            accountType,
             password,
             confirmPassword
         }
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/register`, data)
             .then((res) => {
                 if (res.data.success) {
-                    alert("register success");
+                    toast.success('User registered successfully', {
+                        position: "bottom-left",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true
+                    })
                     setError(null)
                     setLoading(false)
                     Router.push("/login");
@@ -38,12 +48,14 @@ function RegisterComp() {
             })
             .catch((err) => {
                 setLoading(false)
+         
                 err && err.response && setError(err.response.data)
 
             });
     }
     return (
         <section className="pricing-area ptb-80 bg-f9f6f6">
+        <ToastContainer />
             <div className="container">
 
                 <form style={{ padding: "0 15vw" }}>
@@ -54,63 +66,52 @@ function RegisterComp() {
                         </div>
                     }
 
-                    <div class="form-row">
-                        <div class="col">
-                            <div className="form-group">
-                                <label for='firstName'>First Name</label>
-                                <input value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                    type="text" 
-                                    className={`form-control ${error && error.firstName && "is-invalid"}`}
-                                    placeholder="Enter your first name"
-                                    id="firstName"
 
-                                />
-                                {
-                                    error && error.firstName && <div class="invalid-feedback">{error.firstName}</div>
-                                }
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div className="form-group">
-                                <label>Last Name</label>
-                                <input 
-                                value={lastName} 
-                                onChange={(e) => setLastName(e.target.value)} 
-                                type="text" 
-                                className={`form-control ${error && error.lastName && "is-invalid"}`} 
-                                placeholder="Enter your last name" />
-                                {
-                                    error && error.lastName && <div class="invalid-feedback">{error.lastName}</div>
-                                }
-                            </div>
-                        </div>
+                    <div className="form-group">
+                        <label>User name</label>
+                        <input
+                            value={userName}
+                            onChange={(e) =>
+                                setUserName(e.target.value)}
+                            type="text"
+                            className={`form-control ${error && error.userName && "is-invalid"}`}
+                            placeholder="Enter your username" />
+                        {
+                            error && error.userName && <div class="invalid-feedback">{error.userName}</div>
+                        }
                     </div>
-
 
 
                     <div className="form-group">
                         <label>Email address</label>
-                        <input 
-                        value={email} 
-                        onChange={(e) => 
-                        setEmail(e.target.value)} 
-                        type="email" 
-                        className={`form-control ${error && error.email && "is-invalid"}`} 
-                        placeholder="Enter email" />
+                        <input
+                            value={email}
+                            onChange={(e) =>
+                                setEmail(e.target.value)}
+                            type="email"
+                            className={`form-control ${error && error.email && "is-invalid"}`}
+                            placeholder="Enter email" />
                         {
                             error && error.email && <div class="invalid-feedback">{error.email}</div>
                         }
                     </div>
 
                     <div className="form-group">
+                        <label>Account type</label>
+                        <select value={accountType} onChange={(e)=>setAccountType(e.target.value)}  class="form-control">
+                            <option value="personal">Personal</option>
+                            <option value="company">Company</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
                         <label>Password</label>
-                        <input 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        type="password" 
-                        className={`form-control ${error && error.password && "is-invalid"}`}
-                        placeholder="Enter password" />
+                        <input
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            type="password"
+                            className={`form-control ${error && error.password && "is-invalid"}`}
+                            placeholder="Enter password" />
                         {
                             error && error.password && <div class="invalid-feedback">{error.password}</div>
                         }
@@ -118,22 +119,22 @@ function RegisterComp() {
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input 
-                        value={confirmPassword} 
-                        onChange={(e) => setConfirmPassword(e.target.value)} 
-                        type="password" 
-                        className={`form-control ${error && error.confirmPassword && "is-invalid"}`}
-                        placeholder="Enter confirm password" />
-                         {
+                        <input
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            type="password"
+                            className={`form-control ${error && error.confirmPassword && "is-invalid"}`}
+                            placeholder="Enter confirm password" />
+                        {
                             error && error.confirmPassword && <div class="invalid-feedback">{error.confirmPassword}</div>
                         }
                     </div>
 
                     <button onClick={(e) => handleRegister(e)} type="submit" className="btn btn-primary btn-block">
-                    {
-                        isLoading ? <CircularProgress size={20}/>:"Register"
-                    }
-                    
+                        {
+                            isLoading ? <CircularProgress size={20} /> : "Register"
+                        }
+
                     </button>
                     <p className="forgot-password text-right">
                         Already have an account?<Link href="/login"><a>Login now</a></Link>

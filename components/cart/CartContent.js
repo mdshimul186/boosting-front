@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from "next/link";
 import * as Icon from 'react-feather'
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import { connect } from 'react-redux';
-import { removeItem, addQuantity, subtractQuantity } from '../../store/actions/cartActions';
+import { useDispatch,useSelector } from 'react-redux';
 
-class CartContent extends Component {
 
-    handleRemove = (id) => {
-        this.props.removeItem(id);
+const CartContent =()=> {
+    const {addedItems,total} = useSelector(state=>state.cart)
+    let dispatch = useDispatch()
+
+    const handleRemove = (id) => {
+        dispatch({
+            type: "REMOVE_ITEM",
+            id
+        })
 
         toast.error('Removed from cart', {
             position: "bottom-left",
@@ -20,19 +25,22 @@ class CartContent extends Component {
         });
     }
     //to add the quantity
-    handleAddQuantity = (id)=>{
-        this.props.addQuantity(id);
+    const handleAddQuantity = (id)=>{
+        dispatch({
+            type: "ADD_QUANTITY",
+            id
+        })
     }
     //to substruct from the quantity
-    handleSubtractQuantity = (id)=>{
-        this.props.subtractQuantity(id);
+    const handleSubtractQuantity = (id)=>{
+        dispatch({
+            type: "SUB_QUANTITY",
+            id
+        })
     }
 
-    render() {
 
-        let cartItems = this.props.products.length ?
-        (
-            this.props.products.map((data, idx) => {
+        let cartItems = addedItems.length ? addedItems.map((data, idx) => {
                 return(
                     <tr key={idx}>
                         <td className="product-thumbnail">
@@ -53,7 +61,7 @@ class CartContent extends Component {
                             <div className="input-counter">
                                     <span 
                                         className="minus-btn"
-                                        onClick={()=>{this.handleSubtractQuantity(data.id)}}
+                                        onClick={()=>{handleSubtractQuantity(data.id)}}
                                     >
                                         <Icon.Minus />
                                     </span>
@@ -68,7 +76,7 @@ class CartContent extends Component {
                                     />
                                     <span 
                                         className="plus-btn"
-                                        onClick={()=>{this.handleAddQuantity(data.id)}}
+                                        onClick={()=>{handleAddQuantity(data.id)}}
                                     >
                                         <Icon.Plus />
                                     </span>
@@ -80,7 +88,7 @@ class CartContent extends Component {
 
                             <Link href="#">
                                 <a
-                                    onClick={(e)=>{e.preventDefault();this.handleRemove(data.id)}}
+                                    onClick={(e)=>{e.preventDefault();handleRemove(data.id)}}
                                 >
                                     <Icon.Delete />
                                 </a>
@@ -88,15 +96,13 @@ class CartContent extends Component {
                         </td>
                     </tr>
                 )
-            })
-
-        ): (
+            }): 
             <tr>
                 <td className="product-thumbnail">
                     <p>Empty.</p>
                 </td>
             </tr>
-        );
+        
 
 
         return (
@@ -139,9 +145,9 @@ class CartContent extends Component {
                                                 <h3>Cart Totals</h3>
 
                                                 <ul>
-                                                    <li>Subtotal <span>${this.props.total}</span></li>
+                                                    <li>Subtotal <span>${total}</span></li>
                                                     <li>Shipping <span>$0</span></li>
-                                                    <li>Total <span><b>${this.props.total}</b></span></li>
+                                                    <li>Total <span><b>${total}</b></span></li>
                                                 </ul>
                                                 <Link href="/checkout">
                                                     <a className="btn btn-primary">Proceed to Checkout</a>
@@ -157,26 +163,24 @@ class CartContent extends Component {
                     </div>
                 </div>
             </section>
-        );
-    }
+        )
+    
 }
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.addedItems,
-        total: state.total
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         products: state.addedItems,
+//         total: state.total
+//     }
+// }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeItem: (id) => {dispatch(removeItem(id))},
-        addQuantity: (id) => {dispatch(addQuantity(id))},
-        subtractQuantity: (id) => {dispatch(subtractQuantity(id))}
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         removeItem: (id) => {dispatch(removeItem(id))},
+//         addQuantity: (id) => {dispatch(addQuantity(id))},
+//         subtractQuantity: (id) => {dispatch(subtractQuantity(id))}
+//     }
+// }
 
-export default connect(
-    mapStateToProps, 
-    mapDispatchToProps
-)(CartContent)
+export default CartContent
+

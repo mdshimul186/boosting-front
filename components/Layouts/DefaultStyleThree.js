@@ -8,6 +8,7 @@ const DefaultStyleThree =()=> {
 
     const [collapsed, setCollapsed] = useState(true)
     const auth = useSelector(state=>state.auth)
+    const {addedItems} = useSelector(state=>state.cart)
 
     const toggleNavbar = () => {
         setCollapsed(!collapsed)
@@ -75,6 +76,11 @@ const DefaultStyleThree =()=> {
                                     <li className="nav-item">
                                         <Link activeClassName="active" href="/about">
                                             <a className="nav-link">About</a>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link activeClassName="active" href="/services">
+                                            <a className="nav-link">Services</a>
                                         </Link>
                                     </li>
                                     
@@ -207,14 +213,14 @@ const DefaultStyleThree =()=> {
                                         </Link>
                                     </li>
 
-                                    {/* <li className="nav-item cart-wrapper">
+                                     <li className="nav-item cart-wrapper">
                                         <Link href="/cart">
                                             <a className="nav-link">
                                                 <Icon.ShoppingCart />
-                                                <span>{0}</span>
+                                                <span>{addedItems.length}</span>
                                             </a>
                                         </Link>
-                                    </li> */}
+                                    </li> 
                                 </ul>
                             </div>
     
