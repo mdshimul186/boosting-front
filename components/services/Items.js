@@ -6,9 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { addToCart } from '../../store/actions/cartActions';
 import QuickView from './QuickView';
 import ItemsRow from './ItemsRow'
+import axios from 'axios'
 
-const Items =()=> {
 
+const Items =({categories})=> {
+console.log(categories)
   
     const {products} = useSelector(state=>state.cart)
 
@@ -40,32 +42,24 @@ const Items =()=> {
                         </div>
                     </div> */}
 
-
-                    <ItemsRow title="website development" products={products.slice(0,4)} />
-                    <ItemsRow title="Digital Marketing" products={products.slice(0,4)} />
+                    {categories && categories.map((cat,index)=>{
+                        return(
+                            <ItemsRow key={index} category={cat} />
+                        )
+                    })}
+                    
+                    {/* <ItemsRow title="Digital Marketing" products={products.slice(0,4)} />
                     <ItemsRow title="Mobile apps development" products={products.slice(0,4)} />
                     <ItemsRow title="Ecommerce Solution" products={products.slice(0,4)} />
-                    <ItemsRow title="Creative Design" products={products.slice(0,4)} />
+                    <ItemsRow title="Creative Design" products={products.slice(0,4)} /> */}
 
                     
                 </div>
 
-               
+            
             </section>
         );
     }
 
-
-// const mapStateToProps = (state) => {
-//     return {
-       
-//     }
-// }
-
-// const mapDispatchToProps= (dispatch) => {
-//     return {
-//         addToCart: (id) => { dispatch(addToCart(id)) }
-//     }
-// }
-
+  
 export default Items

@@ -5,9 +5,9 @@ const useTagFunc = () => {
     return <svg className="star" dangerouslySetInnerHTML={{__html: useTag }} />;
 }
 
-export class DetailsTab extends Component {
+const DetailsTab=({description})=>{
 
-    openTabSection = (evt, tabName) => {
+    const openTabSection = (evt, tabName) => {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("content");
         for (i = 0; i < tabcontent.length; i++) {
@@ -25,17 +25,17 @@ export class DetailsTab extends Component {
         evt.currentTarget.className += "active";
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
     }
 
-    render() {
+   
         return (
             <div className="col-lg-12 col-md-12">
                 <div className="products-details-tabs">
                     <ul id="tabs">
                         <li 
-                            onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab1')}}
+                            onClick={(e) => {e.preventDefault();openTabSection(e, 'tab1')}}
                             className="active"
                         >
                             <a href="#">
@@ -43,17 +43,17 @@ export class DetailsTab extends Component {
                             </a>
                         </li>
 
-                        <li 
+                        {/* <li 
                             onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab2')}}
                             className=""
                         >
                             <a href="#">
                                Additional information
                             </a>
-                        </li>
+                        </li> */}
 
                         <li 
-                            onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab3')}}
+                            onClick={(e) => {e.preventDefault(); openTabSection(e, 'tab3')}}
                             className=""
                         >
                             <a href="#">
@@ -64,11 +64,11 @@ export class DetailsTab extends Component {
 
                     <div id="tab1" className="content show">
                         <div className="products-description">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing.</p>
+                            <p>{description}</p>
                         </div>
                     </div>
 
-                    <div id="tab2" className="content">
+                    {/* <div id="tab2" className="content">
                         <div className="products-description">
                             <ul className="additional-information">
                                 <li><span>Brand</span> ThemeForest</li>
@@ -78,14 +78,14 @@ export class DetailsTab extends Component {
                                 <li><span>Dimensions</span> 16 x 22 x 123 cm</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div id="tab3" className="content">
                         <div className="products-reviews">
                             <h3>Customer Reviews</h3>
                             <p>There are no reviews yet.</p>
 
-                            <form onSubmit={this.handleSubmit} className="review-form">
+                            <form onSubmit={handleSubmit} className="review-form">
                                 <p>Rate this item</p>
                                 
                                 <div className="star-source">
@@ -167,7 +167,7 @@ export class DetailsTab extends Component {
                 </div>
             </div>
         );
-    }
+    
 }
 
 export default DetailsTab;

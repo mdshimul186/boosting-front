@@ -18,11 +18,11 @@ export class ProductImage extends Component {
     }
 
     renderSliderMainImages = () => {
-        return DEFAULT_PROPS.map(({id, image}) => {
+        return this.props.productImages.map((img,index) => {
             return (
-                <div key={id}>
+                <div key={index}>
                     <li className="item">
-                        <img src={image} alt="image" />
+                        <img src={img} alt="image" />
                     </li>
                 </div>
             )
@@ -30,11 +30,11 @@ export class ProductImage extends Component {
     }
 
     renderSliderSubImages = () => {
-        return DEFAULT_PROPS.map(({id, image}) => {
+        return this.props.productImages.map((img,index) => {
             return (
-                <div key={id}>
+                <div key={index}>
                     <li className="item">
-                        <img src={image} alt="image" />
+                        <img src={img} alt="image" />
                     </li>
                 </div>
             )
@@ -69,7 +69,7 @@ export class ProductImage extends Component {
                                 <Slider
                                     asNavFor={this.state.nav1}
                                     ref={slider => (this.slider2 = slider)}
-                                    slidesToShow={5}
+                                    slidesToShow={this.props.productImages.length}
                                     swipeToSlide={true}
                                     focusOnSelect={true}
                                     arrows={false}
@@ -88,28 +88,28 @@ export class ProductImage extends Component {
     }
 }
 
-const DEFAULT_PROPS = [
-    {
-        id: 1,
-        image: require('../../static/images/shop-image/shop-image1.jpg')
-    },
-    {
-        id: 2,
-        image: require('../../static/images/shop-image/shop-image2.jpg')
-    },
-    {
-        id: 3,
-        image: require('../../static/images/shop-image/shop-image3.jpg')
-    },
-    {
-        id: 4,
-        image: require('../../static/images/shop-image/shop-image4.jpg')
-    },
-    {
-        id: 5,
-        image: require('../../static/images/shop-image/shop-image5.jpg')
-    }
-];
+// const DEFAULT_PROPS = [
+//     {
+//         id: 1,
+//         image: require('../../static/images/shop-image/shop-image1.jpg')
+//     },
+//     {
+//         id: 2,
+//         image: require('../../static/images/shop-image/shop-image2.jpg')
+//     },
+//     {
+//         id: 3,
+//         image: require('../../static/images/shop-image/shop-image3.jpg')
+//     },
+//     {
+//         id: 4,
+//         image: require('../../static/images/shop-image/shop-image4.jpg')
+//     },
+//     {
+//         id: 5,
+//         image: require('../../static/images/shop-image/shop-image5.jpg')
+//     }
+// ];
 
 
 export default ProductImage;

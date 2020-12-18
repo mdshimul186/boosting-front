@@ -9,6 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { useRouter } from 'next/router'
 import AccountSettings from './AccountSettings'
 import ProfileSettings from './ProfileSettings'
+import Orders from './Orders'
 
 function Dashboard() {
     const router = useRouter()
@@ -83,6 +84,9 @@ function Dashboard() {
                             }
                             {
                                 tab === 'account-settings' && <AccountSettings />
+                            }
+                            {
+                                tab === 'purchase-summary' && <Orders />
                             }
                                </div>
                         </div>

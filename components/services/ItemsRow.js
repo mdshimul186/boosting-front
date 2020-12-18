@@ -3,13 +3,33 @@ import Link from 'next/link';
 import { useDispatch,useSelector } from 'react-redux';
 import * as Icon from 'react-feather'
 import { ToastContainer, toast } from 'react-toastify';
-
+import Router from "next/router";
 import QuickView from './QuickView';
 
 import styles from './itemsrow.module.css'
-
-function ItemsRow({ title,products }) {
+import axios from 'axios';
+import MyLoader from './Loader'
+function ItemsRow({ category }) {
     let dispatch = useDispatch()
+
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
+
+
+    useEffect(()=>{
+        setLoading(true)
+        axios.get(`/product/categoryproduct/${category.slug}?limit=4`)
+        .then(res=>{
+            if(res.data.success){
+                setProducts(res.data.product)
+                setLoading(false)
+            }
+        })
+        .catch(err=>{
+            setLoading(false)
+            console.log(err)
+        })
+    },[category])
    
 
     const [modal, setModal] = useState({
@@ -21,21 +41,15 @@ function ItemsRow({ title,products }) {
 
     
 
-    const handleAddToCart = (id) => {
+    const handleOrder = (data) => {
         dispatch({
-            type: "ADD_TO_CART",
-            id
+            type: "SET_SERVICE",
+            payload:data
 
         })
-        
-        toast.success('Added to the cart', {
-            position: "bottom-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-        });
+
+        Router.push('/checkout')
+    
     }
 
     const openModal = () => {
@@ -65,17 +79,19 @@ function ItemsRow({ title,products }) {
                 /> : '' }
         <ToastContainer />
             <div className={styles.header}>
-                <h4 className={styles.title}>{title}</h4>
-                <Link href='/products'><a className={styles.viewAll}>View all</a></Link>
+                <h4 className={styles.title}>{category.name}</h4>
+                <Link href={`/services/${category.slug}`}><a className={styles.viewAll}>View all</a></Link>
             </div>
 
             <div className="row">
 
-                {products.map((data, idx) => (
+                {
+                    loading? <><MyLoader/><MyLoader/></>:
+                    products.length ? products.map((data, idx) => (
                     <div className="col-lg-3 col-md-6" key={idx}>
                         <div className="single-products">
                             <div className="products-image">
-                                <img src={data.image} alt="image" />
+                                <img style={{height:"300px",objectFit:"contain"}} src={data.productImages[0]} alt="image" />
 
                                 <ul>
                                     {/* <li>
@@ -105,8 +121,8 @@ function ItemsRow({ title,products }) {
                             </div>
 
                             <div className="products-content">
-                                <h3><Link href="/product-details"><a>{data.title}</a></Link></h3>
-                                <span>${data.price}</span>
+                                <h3><Link href={`/service-details/${data.slug}`}><a>{data.title}</a></Link></h3>
+                                <span>{data.price} BDT</span>
                                 <ul>
                                     <li><i className="flaticon-star-1"></i></li>
                                     <li><i className="flaticon-star-1"></i></li>
@@ -118,16 +134,17 @@ function ItemsRow({ title,products }) {
                                     <a
                                         className="add-to-cart-btn"
                                         onClick={(e) => {
-                                            e.preventDefault(); handleAddToCart(data.id)
+                                            e.preventDefault(); handleOrder(data)
                                         }}
                                     >
-                                        Add to Cart
+                                        Order Now
                     </a>
                                 </Link>
                             </div>
                         </div>
                     </div>
-                ))}
+                )):
+                <p className='mx-5'>No services found</p>}
 
             </div>
            

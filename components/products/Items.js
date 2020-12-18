@@ -5,58 +5,22 @@ import * as Icon from 'react-feather'
 import { ToastContainer, toast } from 'react-toastify';
 import { addToCart } from '../../store/actions/cartActions';
 import QuickView from './QuickView';
+import Router from 'next/router'
 
-const Items =()=> {
+const Items =({products})=> {
 
     let dispatch = useDispatch()
-    const {products} = useSelector(state=>state.cart)
-
-    const [modal, setModal] = useState({
-        modalOpen: false,
-        modalImage: '',
-        price: 0,
-        idd: null
-    })
-
     
-
-    const handleAddToCart = (id) => {
+    const handleOrder = (data) => {
         dispatch({
-            type: "ADD_TO_CART",
-            id
+            type: "SET_SERVICE",
+            payload:data
 
         })
-        
-        toast.success('Added to the cart', {
-            position: "bottom-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-        });
+
+        Router.push('/checkout')
+    
     }
-
-    const openModal = () => {
-        setModal({...modal, modalOpen: true });
-    }
-
-    const closeModal = () => {
-        setModal({...modal, modalOpen: false });
-    }
-
-    const handleModalData = (image, price, id) => {
-        setModal({ 
-            ...modal,
-            modalImage: image, 
-            price: price,
-            idd: id
-        });
-    }
-
-
-  
-
   
         return (
             <section className="shop-area ptb-80">
@@ -65,9 +29,9 @@ const Items =()=> {
                     <div className="woocommerce-topbar">
                         <div className="row align-items-center">
                             <div className="col-lg-9 col-md-7">
-                                <div className="woocommerce-result-count">
+                                {/* <div className="woocommerce-result-count">
                                     <p>Showing 1-8 of 14 results</p>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="col-lg-3 col-md-5">
@@ -87,14 +51,14 @@ const Items =()=> {
 
                     <div className="row">
 
-                    {products.map((data, idx) => (
+                    {products.length ? products.map((data, idx) => (
                         <div className="col-lg-3 col-md-6" key={idx}>
                             <div className="single-products">
                                 <div className="products-image">
-                                    <img src={data.image} alt="image" />
+                                <img style={{height:"300px",objectFit:"contain"}} src={data.productImages[0]} alt="image" />
 
                                     <ul>
-                                        <li>
+                                        {/* <li>
                                             <Link href="#">
                                                 <a 
                                                     onClick={e => {
@@ -107,7 +71,7 @@ const Items =()=> {
                                                     <Icon.Search />
                                                 </a>
                                             </Link>
-                                        </li>
+                                        </li> */}
                                         <li>
                                             <a href="#"><Icon.Heart /></a>
                                         </li>
@@ -122,8 +86,8 @@ const Items =()=> {
                                 </div>
 
                                 <div className="products-content">
-                                    <h3><a href="#">{data.title}</a></h3>
-                                    <span>${data.price}</span>
+                                <h3><Link href={`/service-details/${data.slug}`}><a>{data.title}</a></Link></h3>
+                                    <span>{data.price} BDT</span>
                                     <ul>
                                         <li><i className="flaticon-star-1"></i></li>
                                         <li><i className="flaticon-star-1"></i></li>
@@ -135,18 +99,19 @@ const Items =()=> {
                                         <a 
                                             className="add-to-cart-btn"
                                             onClick={(e) => {
-                                                e.preventDefault(); handleAddToCart(data.id)
+                                                e.preventDefault(); handleOrder(data)
                                             }}
                                         >
-                                            Add to Cart
+                                            Order Now
                                         </a>
                                     </Link>
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    )):
+                    <p>No services found</p>}
 
-                        <div className="col-lg-12 col-md-12">
+                        {/* <div className="col-lg-12 col-md-12">
                             <div className="pagination-area">
                                 <nav aria-label="Page navigation">
                                     <ul className="pagination justify-content-center">
@@ -163,16 +128,10 @@ const Items =()=> {
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
-                { modal.modalOpen ? <QuickView 
-                    closeModal={closeModal} 
-                    idd={modal.idd}
-                    image={modal.modalImage} 
-                    price={modal.price}
-                /> : '' }
             </section>
         );
     }

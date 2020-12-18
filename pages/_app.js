@@ -86,7 +86,6 @@ if(token){
 
 class MyApp extends App {
   componentDidMount() {
-    console.log("kugkfj")
     configureAxiosHeader();
     axios
       .post(process.env.NEXT_PUBLIC_API_URL + "/user/verify", {})

@@ -1,74 +1,43 @@
 import React, { Component } from 'react';
 import * as Icon from 'react-feather';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addQuantityWithNumber } from '../../store/actions/cartActions';
 import { ToastContainer, toast } from 'react-toastify';
 import DetailsTab from './DetailsTab';
 import ProductImage from './ProductImage';
+import Router from 'next/router'
 
-export class ProductContent extends Component {
+const ProductContent=({product})=>{
 
-    state = {
-        qty: 1,
-        max: 10,
-        min: 1
-    };
+    let dispatch = useDispatch()
+  
 
-    handleAddToCartFromView = () => {
-        this.props.addQuantityWithNumber(8, this.state.qty); 
 
-        toast.success('Added to the cart', {
-            position: "bottom-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-        });
-    }
+    const handleOrder = (data) => {
+        dispatch({
+            type: "SET_SERVICE",
+            payload:data
 
-    IncrementItem = () => {
-        this.setState(prevState => {
-            if(prevState.qty < 10) {
-                return {
-                    qty: prevState.qty + 1
-                }
-            } else {
-                return null;
-            }
-        });
-    }
+        })
 
-    DecreaseItem = () => {
-        this.setState(prevState => {
-            if(prevState.qty > 1) {
-                return {
-                    qty: prevState.qty - 1
-                }
-            } else {
-                return null;
-            }
-        });
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
+        Router.push('/checkout')
+    
     }
     
-    render() {
+
         return (
             <section className="shop-details-area ptb-80">
                 <ToastContainer />
                 <div className="container">
                     <div className="row align-items-center">
-                        <ProductImage />
+                        <ProductImage productImages={product.productImages} />
 
                         <div className="col-lg-7">
                             <div className="products-details">
-                                <h3>Wood Pencil</h3>
+                                <h3>{product.title}</h3>
 
                                 <div className="price">
-                                    <span>$150</span> $140
+                                     {product.price} BDT
                                 </div>
                                 <ul className="rating">
                                     <li><i className="flaticon-star-1"></i></li>
@@ -78,34 +47,37 @@ export class ProductContent extends Component {
                                     <li><i className="flaticon-star-1"></i></li>
                                 </ul>
 
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                <p>{product.shortDescription}</p>
 
-                                <div className="availability">
-                                    Availability: <span>In Stock</span>
+                                {/* <div className="availability">
+                                    SKU: <span>{product.SKU}</span>
+                                </div> */}
+                                <div className="">
+                                    SKU: <span>{product.SKU}</span>
                                 </div>
 
-                                <form onSubmit={this.handleSubmit}>
+                                {/* <form onSubmit={null}>
                                     <div className="quantity">
                                         <span>Quantity:</span>
 
                                         <span 
                                             className="minus-btn"
-                                            onClick={this.DecreaseItem}
+                                            onClick={null}
                                         >
                                             <Icon.Minus />
                                         </span>
 
                                         <input 
                                             type="text" 
-                                            value={this.state.qty}
-                                            min={this.state.min}
-                                            max={this.state.max} 
-                                            onChange={e => this.setState({ qty: e.target.value })}
+                                            value={0}
+                                            min={0}
+                                            max={0} 
+                                            onChange={e => null}
                                         />
 
                                         <span 
                                             className="plus-btn"
-                                            onClick={this.IncrementItem}
+                                            onClick={null}
                                         >
                                             <Icon.Plus />
                                         </span>
@@ -113,7 +85,7 @@ export class ProductContent extends Component {
                                     </div>
                                     <button 
                                         type="submit" 
-                                        onClick={this.handleAddToCartFromView}
+                                        onClick={null}
                                     >
                                         Add to Cart
                                     </button>
@@ -122,11 +94,11 @@ export class ProductContent extends Component {
                                         <Icon.Heart />
                                     </a>
                                     
-                                    <div className="buy-btn">
-                                        <a href="#" className="btn btn-primary">Buy it Now</a>
+                                    
+                                </form> */}
+                                <div style={{cursor:"pointer"}} onClick={()=>handleOrder(product)} className="buy-btn mt-3">
+                                        <a className="btn btn-primary">Buy it Now</a>
                                     </div>
-                                </form>
-
                                 <div className="custom-payment-options">
                                     <span>Guaranteed safe checkout:</span>
 
@@ -170,22 +142,15 @@ export class ProductContent extends Component {
                             </div>
                         </div>
 
-                        <DetailsTab />
+                        <DetailsTab description={product.description} />
 
                     </div>
                 </div>
             </section>
         );
-    }
+    
 }
 
-const mapDispatchToProps= (dispatch)=>{
-    return {
-        addQuantityWithNumber: (id, qty) => {dispatch(addQuantityWithNumber(id, qty))}
-    }
-}
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(ProductContent)
+
+export default ProductContent

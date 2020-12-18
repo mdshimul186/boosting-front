@@ -3393,6 +3393,7 @@ Shop CSS
   -webkit-transition: all 1.5s ease-out;
   transition: all 1.5s ease-out;
   width: 100%;
+  
 }
 
 .single-products .products-image::before {
