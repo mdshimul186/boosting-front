@@ -25,7 +25,7 @@ const Products=({categories})=> {
 }
 export async function getServerSideProps(context) {
  
-    let res = await axios.get(`${NEXT_PUBLIC_API_URL}/product/category`)
+    let res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/product/category`)
     
 
 

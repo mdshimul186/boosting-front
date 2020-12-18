@@ -29,7 +29,7 @@ const Products=({product})=>{
 
 export async function getServerSideProps(context) {
     let slug = context.params.slug
-    let res = await axios.get(`${NEXT_PUBLIC_API_URL}/product/getproduct/${slug}`)
+    let res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/product/getproduct/${slug}`)
     
 
 
