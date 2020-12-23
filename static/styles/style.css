@@ -301,23 +301,23 @@ label {
 }
 
 .form-control {
-  height: 50px;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: #0e314c;
-  border: 1px solid #eeeeee;
+  height: 50px !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  color: #0e314c !important;
+  border: 1px solid #eeeeee !important;
   border-radius: 0;
-  background: #eeeeee;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  background: #eeeeee !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
 }
 
 .form-control:focus {
-  outline: 0;
-  background: #ffffff;
-  -webkit-box-shadow: unset;
-          box-shadow: unset;
-  border-color: #44ce6f;
+  outline: 0 !important;
+  background: #ffffff !important;
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  border-color: #44ce6f !important;
 }
 
 /*Section Title*/
@@ -8380,3 +8380,13 @@ Agency CTA CSS
 
 /* End Home eight Agency Demo */
 /*# sourceMappingURL=style.css.map */
+
+
+/* customized */
+.showlabel{
+transition: 1s ease;
+}
+.hideLabel{
+  height: 0;
+  display: none;
+}

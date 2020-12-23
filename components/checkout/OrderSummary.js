@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Link from "next/link";
 import Payment from '../Payment/Payment';
+import BeatLoader from "react-spinners/BeatLoader";
 
 
-const OrderSummary=({disabled,handleChange})=>{
+const OrderSummary=({disabled,handleChange,method,loading})=>{
     const {total,addedItems} = useSelector(state=>state.cart)
     const {service} = useSelector(state=>state.checkout)
     
@@ -68,7 +69,7 @@ const OrderSummary=({disabled,handleChange})=>{
                                     </td>
 
                                     <td className="shipping-price">
-                                        <span>{service.VAT} BDT</span>
+                                        <span>{(parseInt(service.VAT)/100)*parseInt(service.price)} BDT</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -77,7 +78,7 @@ const OrderSummary=({disabled,handleChange})=>{
                                     </td>
 
                                     <td className="product-subtotal">
-                                        <span className="subtotal-amount">{parseInt(service.price) + parseInt(service.VAT)} BDT</span>
+                                        <span className="subtotal-amount">{parseInt(service.price) + ((parseInt(service.VAT)/100)*parseInt(service.price))} BDT</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -87,18 +88,38 @@ const OrderSummary=({disabled,handleChange})=>{
                     <div className="payment-method">
                     <form value="discuss" onChange={handleChange}>
                         <p>
-                            <input value='bank' type="radio" id="direct-bank-transfer" name="radio-group" />
-                            <label for="direct-bank-transfer">Direct Bank Transfer</label>
+                            <input value='bkash' type="radio" id="direct-bank-transfer" name="radioGroup" />
+                            <label for="direct-bank-transfer">Bkash</label>
 
-                            Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                            <span className={method.radioGroup === 'bkash' ? 'showLabel':"hideLabel"}>
+                            ০১৭৫৬০৬৩৭২৯ এই নাম্বারে আপনার বিলটি পাঠান<br></br>
+                            পাঠানোর পরে ট্রাঞ্জেকশন আইডিটি এখানে দিন
+                                <input value={method.paymentDetails} type='text' placeholder='Your Bkash transaction id' className='form-control' name='paymentDetails'></input>
+                            </span>
                         </p>
                         <p>
-                            <input value='paypal' type="radio" id="paypal" name="radio-group" />
+                            <input value='rocket' type="radio" id="rocket" name="radioGroup" />
+                            <label for="rocket">Rocket</label>
+
+                            <span className={method.radioGroup === 'rocket' ? 'showLabel':"hideLabel"}>
+                            ০১৭৫৬০৬৩৭২৯ এই নাম্বারে আপনার বিলটি পাঠান<br></br>
+                            পাঠানোর পরে ট্রাঞ্জেকশন আইডিটি এখানে দিন
+                                <input value={method.paymentDetails} type='text' placeholder='Your Rocket transaction id' className='form-control' name='paymentDetails'></input>
+                            </span>
+                        </p>
+                        <p>
+                            <input value='paypal' type="radio" id="paypal" name="radioGroup" />
                             <label for="paypal">PayPal</label>
+                            <span className={method.radioGroup === 'paypal' ? 'showLabel':"hideLabel"}>
+                                <input value={method.paymentDetails} type='text' placeholder='Enter your paypal email' className='form-control' name='paymentDetails'></input>
+                            </span>
                         </p>
                         <p>
-                            <input value='discuss' type="radio" id="cash-on-delivery" name="radio-group" />
+                            <input value='discuss' type="radio" id="cash-on-delivery" name="radioGroup" />
                             <label for="cash-on-delivery">By Discuss</label>
+                            <span className={method.radioGroup === 'discuss' ? 'showLabel':"hideLabel"}>
+                                <input value={method.paymentDetails}  type='text' placeholder='Enter payment details' className='form-control' name='paymentDetails'></input>
+                            </span>
                         </p>
                         </form>
                     </div>
@@ -107,9 +128,22 @@ const OrderSummary=({disabled,handleChange})=>{
                         amount={totalAmount * 100}
                         disabled={disabled}
                     /> */}
-                    <button type='submit' disabled={disabled} className={`btn btn-primary order-btn ${disabled ? 'btn-disabled' : ''}`} >
+                    {
+                        loading ?
+                        <button style={{textAlign:"center"}} type='submit' disabled={true} className={`btn btn-primary order-btn 'btn-disabled'}`} >
+                        <BeatLoader
+                        size={15}
+                        color={"#123abc"}
+                        loading={true}
+                        
+                        />
+                        </button>:
+                        <button type='submit' disabled={disabled} className={`btn btn-primary order-btn ${disabled ? 'btn-disabled' : ''}`} >
                             Place Order
                         </button>
+                        
+                    }
+                    
                 </div>
             </div>
         );

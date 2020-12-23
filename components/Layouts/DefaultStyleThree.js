@@ -213,14 +213,14 @@ const DefaultStyleThree =()=> {
                                         </Link>
                                     </li>
 
-                                     <li className="nav-item cart-wrapper">
+                                     {/* <li className="nav-item cart-wrapper">
                                         <Link href="/cart">
                                             <a className="nav-link">
                                                 <Icon.ShoppingCart />
                                                 <span>{addedItems.length}</span>
                                             </a>
                                         </Link>
-                                    </li> 
+                                    </li>  */}
                                 </ul>
                             </div>
     

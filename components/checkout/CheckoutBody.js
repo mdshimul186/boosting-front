@@ -11,11 +11,12 @@ function CheckoutBody() {
     const { authenticated } = useSelector(state => state.auth)
     const { service } = useSelector(state => state.checkout)
     const [activeButton, setActiveButton] = useState(true)
+    const [loading, setLoading] = useState(false)
 
 
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')
-    const [method, setMethod] = useState('')
+    const [method, setMethod] = useState({radioGroup:'',paymentDetails:''})
 
 
     const toastMsg = (type, message) => {
@@ -43,35 +44,46 @@ function CheckoutBody() {
 
     function handleOnSubmit(e) {
         e.preventDefault()
-        setActiveButton(false)
+       setLoading(true)
         let data ={
             product:service._id,
-            total:parseInt(service.price) + parseInt(service.VAT),
-            paymentMethod:method,
+            total:parseInt(service.price) + ((parseInt(service.VAT)/100)*parseInt(service.price)),
+            paymentMethod:method.radioGroup,
             name,
-            mobile:number
+            mobile:number,
+            paymentDetails:method.paymentDetails
         }
+        console.log(data)
         axios.post('/order/create',data)
         .then(res=>{
             if(res.data.success){
+                setLoading(false)
                 toastMsg('success', 'Order placed successfully')
                 Router.push("/dashboard?tab=purchase-summary")
             }
             
         })
         .catch(err=>{
+            setLoading(false)
             err && err.response && toastMsg('error', err.response.data.error)
         })
     }
 
     const handleChange=(e)=>{
-        setMethod(e.target.value)
+        console.log({[e.target.name]:e.target.value})
+        if(e.target.value==='bkash'||e.target.value==='rocket'||e.target.value==='paypal'||e.target.value==='discuss')
+        {
+            setMethod({[e.target.name]:e.target.value,paymentDetails:''})
+        }else{
+            setMethod({...method,[e.target.name]:e.target.value})
+        }
+       
     }
 
 
     useEffect(() => {
         if (authenticated) {
-            if (number.length && name.length && method.length) {
+            if (number.length && name.length && method.radioGroup.length && method.paymentDetails.length) {
                 return setActiveButton(false)
             } else {
                 return setActiveButton(true)
@@ -118,7 +130,7 @@ function CheckoutBody() {
                                         <>
                                             <div className="col-lg-12 col-md-12">
                                                 <div className="form-group">
-                                                    <label>User Name <span className="required">*</span></label>
+                                                    <label>Full Name <span className="required">*</span></label>
                                                     <input
                                                         type="text"
                                                         className="form-control"
@@ -179,7 +191,7 @@ function CheckoutBody() {
                             </div>
                         </div>
 
-                        <OrderSummary handleChange={handleChange} disabled={activeButton} />
+                        <OrderSummary loading={loading} method={method} handleChange={handleChange} disabled={activeButton} />
                     </div>
                 </form>
             </div>

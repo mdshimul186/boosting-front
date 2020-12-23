@@ -33,6 +33,8 @@ function Orders() {
                         <th scope="col">Amount</th>
                         <th scope="col">User Name</th>
                         <th scope="col">Method</th>
+                        <th scope="col">TrxId/Email</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Order ID</th>
                         <th scope="col">Date</th>
                     </tr>
@@ -54,7 +56,9 @@ function Orders() {
                                     <td>{order.total} BDT</td>
                                     <td>{order.name}</td>
                                     <td>{order.paymentMethod}</td>
-                                    <td>{order._id}</td>
+                                    <td>{order.paymentDetails}</td>
+                                    <td>{order.status}</td>
+                                    <td>{order.orderId}</td>
                                     <td>{moment(order.createdAt).fromNow()}</td>
                                 </tr>
                             )
