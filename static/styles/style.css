@@ -8314,9 +8314,9 @@ Agency CTA CSS
 
 /*btn-gradient*/
 .btn-gradient {
-  color: #ffffff;
-  background: -webkit-gradient(linear, left top, right top, color-stop(0, #ee0979), to(#ff6a00));
-  background: linear-gradient(90deg, #ee0979 0, #ff6a00 100%);
+  color: #ffffff !important;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #ee0979), to(#ff6a00)) !important;
+  background: linear-gradient(90deg, #ee0979 0, #ff6a00 100%) !important;
   -webkit-box-shadow: unset !important;
           box-shadow: unset !important;
   -webkit-transform: unset !important;
@@ -8324,22 +8324,22 @@ Agency CTA CSS
 }
 
 .btn-gradient::after {
-  display: none;
+  display: none !important;
 }
 
 .btn-gradient::before {
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
-  background: linear-gradient(135deg, #23bdb8 0, #43e794 100%);
-  left: 0;
-  border-radius: 4px;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #23bdb8 0, #43e794 100%) !important;
+  left: 0 !important;
+  border-radius: 4px !important;
 }
 
 .btn-gradient:hover, .btn-gradient:focus, .btn-gradient:active {
-  color: #ffffff;
-  background: -webkit-gradient(linear, left top, right top, color-stop(0, #ee0979), to(#ff6a00));
-  background: linear-gradient(90deg, #ee0979 0, #ff6a00 100%);
+  color: #ffffff !important;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #ee0979), to(#ff6a00)) !important;
+  background: linear-gradient(90deg, #ee0979 0, #ff6a00 100%) !important;
   -webkit-box-shadow: unset !important;
           box-shadow: unset !important;
 }

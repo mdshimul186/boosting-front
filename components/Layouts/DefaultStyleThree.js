@@ -171,7 +171,7 @@ const DefaultStyleThree =()=> {
                                         </ul>
                                     </li>
 
-                                    <li className="nav-item">
+                                    {/* <li className="nav-item">
                                         <a href="#" className="nav-link">Shop <Icon.ChevronDown /></a>
                                         <ul className="dropdown_menu">
                                             <li className="nav-item">
@@ -186,9 +186,9 @@ const DefaultStyleThree =()=> {
                                                 </Link>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> */}
 
-                                    <li className="nav-item">
+                                    {/* <li className="nav-item">
                                         <Link activeClassName="active" href="#">
                                             <a className="nav-link">Blog <Icon.ChevronDown /></a>
                                         </Link>
@@ -205,6 +205,13 @@ const DefaultStyleThree =()=> {
                                                 </Link>
                                             </li>
                                         </ul>
+                                    </li> */}
+
+                                    <li className="nav-item">
+                                    <Link activeClassName="active" href="/blog">
+                                            <a className="nav-link">Blog</a>
+                                        </Link>
+                                        
                                     </li>
     
                                     <li className="nav-item">

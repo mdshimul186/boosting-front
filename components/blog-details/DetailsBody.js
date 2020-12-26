@@ -1,121 +1,110 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Link from 'next/link'
 import * as Icon from 'react-feather'
+import parse from 'html-react-parser'
+import Router from 'next/router'
+import moment from 'moment'
 
-export default class BlogBody extends React.Component {
+const BlogBody = ({ article }) => {
+    console.log(article)
 
-    state = {
-        comments: [
-            { id: null, name: 'Meeting with Aaron Rossi', comment: 'Meeting with Aaron Rossi' }
-        ],
-        name: '',
-        comment: ''
-    };
-
-    onHandleSubmit = (e) => {
-        e.preventDefault();
-        if (!this.state.name.length) {
-            return;
+    useEffect(() => {
+        if(!article){
+            Router.push('/blog')
         }
+    }, [article])
 
-        const newComment = {
-            name: this.state.name,
-            comment: this.state.comment,
-            id: Date.now()
-        };
+   
 
-        this.setState(state => ({
-            comments: state.comments.concat(newComment),
-            name: '',
-            comment: ''
-        }));
+    // state = {
+    //     comments: [
+    //         { id: null, name: 'Meeting with Aaron Rossi', comment: 'Meeting with Aaron Rossi' }
+    //     ],
+    //     name: '',
+    //     comment: ''
+    // };
 
-        // console.log(this.state.comments)
-    }
+    // onHandleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!this.state.name.length) {
+    //         return;
+    //     }
 
-    render() {
-        return (
-            <section className="blog-details-area ptb-80">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 col-md-12 offset-lg-2">
-                            <div className="blog-details">
-                                <div className="article-img">
-                                    <img src={require("../../static/images/blog-details.jpg")} alt="blog-details" />
-                                    <div className="date">20 <br /> Jan</div>
-                                </div>
-                                
-                                <div className="article-content">
-                                    <ul className="category">
+    //     const newComment = {
+    //         name: this.state.name,
+    //         comment: this.state.comment,
+    //         id: Date.now()
+    //     };
+
+    //     this.setState(state => ({
+    //         comments: state.comments.concat(newComment),
+    //         name: '',
+    //         comment: ''
+    //     }));
+
+    //     // console.log(this.state.comments)
+    // }
+
+    return (
+        <section className="blog-details-area ptb-80">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 col-md-12 offset-lg-2">
+                        <div className="blog-details">
+                            <div className="article-img">
+                                <img style={{ width: "800px", height: "350px", objectFit: "cover" }} src={article && article.thumbnail} alt="blog-details" />
+                                <div className="date">{article && moment(article.createdAt).format('DD')} <br /> {article && moment(article.createdAt).format('MMM')}</div>
+                            </div>
+
+                            <div className="article-content">
+                                <ul className="category">
+                                     {
+                                        article && article.tags.length > 0 && article.tags.map((tag, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <Link href="#">
+                                                        <a>{tag}</a>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        })
+                                    } 
+
+
+                                </ul>
+
+                                <h3>{article && article.title}</h3>
+
+                                {article && parse(article.description)}
+
+                                <div className="share-post">
+                                    <ul>
                                         <li>
                                             <Link href="#">
-                                                <a>IT</a>
+                                                <a><Icon.Facebook /></a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="#">
-                                                <a>Mobile</a>
+                                                <a><Icon.Twitter /></a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="#">
-                                                <a>Marketing</a>
+                                                <a><Icon.Instagram /></a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="#">
-                                                <a>Design</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="#">
-                                                <a>Development</a>
+                                                <a><Icon.Linkedin /></a>
                                             </Link>
                                         </li>
                                     </ul>
-                                        
-                                    <h3>How to Be a Work From Home Professional</h3>
-                                    
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In necessitatibus provident facere, reiciendis voluptate dolorem iste consectetur veniam aperiam suscipit ad ipsum et labore a repellendus debitis explicabo quisquam obcaecati....</p>
-                                    
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum alias debitis suscipit, sint dignissimos minus quisquam recusandae nostrum quas eligendi odit, fugiat eius rem. Cumque, labore placeat! Velit, vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
-                                    
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
-                                    
-                                    <blockquote className="blockquote">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate.</p>
-                                    </blockquote>
-                                    
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum alias debitis suscipit, sint dignissimos minus quisquam recusandae nostrum quas eligendi odit, fugiat eius rem. Cumque, labore placeat! Velit, vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, iste? Aut ipsam consequuntur non rem tenetur dolore consequatur ducimus a labore excepturi quae nisi, quisquam, maxime voluptates magnam aliquid. Cupiditate!</p>
-                                    
-                                    <div className="share-post">
-                                        <ul>
-                                            <li>
-                                                <Link href="#">
-                                                    <a><Icon.Facebook /></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#">
-                                                    <a><Icon.Twitter /></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#">
-                                                    <a><Icon.Instagram /></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#">
-                                                    <a><Icon.Linkedin /></a>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
-                            
-                            <div className="post-controls-buttons">
+                        </div>
+
+                        {/* <div className="post-controls-buttons">
                                 <div className="controls-left">
                                     <Link href="#">
                                         <a><i className="icofont-double-left"></i> Prev Post</a>
@@ -127,9 +116,9 @@ export default class BlogBody extends React.Component {
                                         <a>Next Post <i className="icofont-double-right"></i></a>
                                     </Link>
                                 </div>
-                            </div>
-                            
-                            <div className="post-comments">
+                            </div> */}
+
+                        {/* <div className="post-comments">
                                 <h3>Comments</h3>
                                 <div className="single-comment">
                                     <div className="comment-img">
@@ -230,12 +219,13 @@ export default class BlogBody extends React.Component {
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
+                            </div> */}
                     </div>
                 </div>
-            </section>
-        )
-    }
+            </div>
+        </section>
+    )
+
 }
-    
+
+export default BlogBody
