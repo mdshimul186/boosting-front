@@ -1,10 +1,10 @@
 import React from 'react'
 import { Preloader, Placeholder } from 'react-preloading-screen'
-import HeaderThree from '../../components/Layouts/HeaderThree';
-import Footer from '../../components/Layouts/Footer'
-import GoTop from '../../components/Layouts/GoTop'
-import PageTitle from '../../components/products/PageTitle';
-import Items from '../../components/products/Items';
+import HeaderThree from '../../../components/Layouts/HeaderThree';
+import Footer from '../../../components/Layouts/Footer'
+import GoTop from '../../../components/Layouts/GoTop'
+import PageTitle from '../../../components/products/PageTitle';
+import Items from '../../../components/products/Items';
 import axios from 'axios'
 
 const Products=({products})=>{
@@ -27,7 +27,7 @@ const Products=({products})=>{
 }
 
 export async function getServerSideProps(context) {
-    let slug = context.params.slug
+    let slug = context.params.catslug
     let res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/product/categoryproduct/${slug}?limit=12`)
     
 

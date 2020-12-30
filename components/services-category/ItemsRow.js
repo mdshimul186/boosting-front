@@ -13,26 +13,29 @@ function ItemsRow({ category }) {
     let dispatch = useDispatch()
 
     const [products, setProducts] = useState([])
-    const [category2, setCategory2] = useState({})
+    //const [category2, setCategory2] = useState({})
     const [loading, setLoading] = useState(false)
+    const [parent, setParent] = useState('parent')
 
 
     useEffect(()=>{
-        // setLoading(true)
-        // axios.get(`/product/categoryproduct/${category.slug}?limit=4`)
-        // .then(res=>{
-        //     if(res.data.success){
-        //         setProducts(res.data.product)
-        //         setLoading(false)
-        //     }
-        // })
-        // .catch(err=>{
-        //     setLoading(false)
-        //     console.log(err)
-        // })
+        setParent(Router.router.query.slug)
+        setLoading(true)
+        axios.get(`/product/categoryproduct/${category.slug}?limit=4`)
+        .then(res=>{
+            if(res.data.success){
+                setProducts(res.data.product)
+                setLoading(false)
+            }
+        })
+        .catch(err=>{
+            setLoading(false)
+            console.log(err)
+        })
 
-        setProducts(category.product)
-        setCategory2(category.category)
+        // setProducts(category.product)
+        // setCategory2(category.category)
+        
     },[category])
    
 
@@ -83,8 +86,8 @@ function ItemsRow({ category }) {
                 /> : '' }
         <ToastContainer />
             <div className={styles.header}>
-                <h4 className={styles.title}>{category2.name}</h4>
-                <Link href={`/services/${category2.slug}`}><a className={styles.viewAll}>View all</a></Link>
+                <h4 className={styles.title}>{category.name}</h4>
+                <Link href={`/services/${parent}/${category.slug}`}><a className={styles.viewAll}>View all</a></Link>
             </div>
 
             <div className="row">
