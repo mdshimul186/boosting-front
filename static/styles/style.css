@@ -8390,3 +8390,6 @@ transition: 1s ease;
   height: 0;
   display: none;
 }
+.modal-70w{
+  width: 70vw;
+}

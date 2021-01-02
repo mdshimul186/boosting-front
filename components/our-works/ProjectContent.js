@@ -104,7 +104,8 @@ export default function ProjectContent() {
 	return (
 		<section className="works-area ptb-80">
 
-			<Modal style={{width:"70vw"}} show={show} onHide={handleClose}>
+			<Modal  dialogClassName="modal-70w" show={show} onHide={handleClose}>
+		
 				<Modal.Header style={{padding:"10px"}} closeButton bsPrefix='test'>
 					<Modal.Title>Project Details</Modal.Title>
 				</Modal.Header>
@@ -120,6 +121,7 @@ export default function ProjectContent() {
 						</div>
 					</div>
 				</Modal.Body>
+	
 			</Modal>
 
 
