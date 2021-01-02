@@ -104,7 +104,7 @@ export default function ProjectContent() {
 	return (
 		<section className="works-area ptb-80">
 
-			<Modal show={show} onHide={handleClose}>
+			<Modal style={{width:"70vw"}} show={show} onHide={handleClose}>
 				<Modal.Header style={{padding:"10px"}} closeButton bsPrefix='test'>
 					<Modal.Title>Project Details</Modal.Title>
 				</Modal.Header>
