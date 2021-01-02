@@ -8391,5 +8391,5 @@ transition: 1s ease;
   display: none;
 }
 .modal-70w{
-  width: 70vw;
+  width: 70vw !important;
 }
