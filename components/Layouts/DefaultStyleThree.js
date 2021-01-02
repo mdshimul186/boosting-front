@@ -213,6 +213,13 @@ const DefaultStyleThree =()=> {
                                         </Link>
                                         
                                     </li>
+
+                                    <li className="nav-item">
+                                    <Link activeClassName="active" href="/our-works">
+                                            <a className="nav-link">Our Works</a>
+                                        </Link>
+                                        
+                                    </li>
     
                                     <li className="nav-item">
                                         <Link activeClassName="active" href="/contact">

@@ -17,6 +17,7 @@ import '../static/styles/style.css'
 */
 // import '../static/styles/brink-pink-style.css'
 import '../static/css/responsive.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Provider } from 'react-redux';
 import App from 'next/app'

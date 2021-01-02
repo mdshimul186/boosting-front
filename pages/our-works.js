@@ -3,8 +3,8 @@ import { Preloader, Placeholder } from 'react-preloading-screen'
 import HeaderThree from '../components/Layouts/HeaderThree';
 import Footer from '../components/Layouts/Footer'
 import GoTop from '../components/Layouts/GoTop'
-import PageTitle from '../components/project/PageTitle'
-import ProjectContent from '../components/project/ProjectContent'
+import PageTitle from '../components/our-works/PageTitle'
+import ProjectContent from '../components/our-works/ProjectContent'
 
 class Project extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class Project extends React.Component {
                     </div>
                 </Placeholder>
                 <HeaderThree />
-                <PageTitle />
+                {/* <PageTitle /> */}
                 <ProjectContent />
                 <Footer />
                 <GoTop scrollStepInPx="50" delayInMs="16.66" />
